@@ -1,7 +1,7 @@
 # Base configs
 # base URL after / is dependent on the repository name
-baseurl: "https://staycool21.github.io/staycool21-photography"
-# baseurl: "" # Comment the above line and uncomment this to test the website locally
+# baseurl: "https://staycool21.github.io/staycool21-photography"
+baseurl: "" # Comment the above line and uncomment this to test the website locally
 image_fulls_loc: "/images/fulls"
 image_thumbs_loc: "/images/thumbs"
 google_analytics: ""
@@ -21,7 +21,7 @@ footer:
 # Configure which exif data to display
 # Tag is the actual exif tag, icon is a fontawesome icon. Use JSON notation without line breaks
 
-exif: '[{"tag": "Model", "icon": "camera-retro"}, {"tag": "FNumber", "icon": "dot-circle-o"}, {"tag": "ExposureTime", "icon": "clock-o"}, {"tag": "ISOSpeedRatings", "icon": "info-circle"}, {"tag": "ImageDescription", "icon": "file-text-o"}]'
+exif: '[{"tag": "Model", "icon": "camera-retro"}, {"tag": "FNumber", "icon": "eye"}, {"tag": "ExposureTime", "icon": "clock-o"}, {"tag": "ISOSpeedRatings", "icon": "info-circle"}, {"tag": "SubjectLocation", "icon": "file-text-o"}]'
 social_urls:
   # twitter: ""
   # instagram: ""

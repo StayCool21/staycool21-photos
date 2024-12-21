@@ -719,6 +719,9 @@
                             StringValues.Components[exifData[tag][2]] +
                             StringValues.Components[exifData[tag][3]];
                         break;
+                    case "ISOSpeedRatings":
+                        exifData[tag] = "ISO " + exifData[tag];
+                        break;
                 }
                 tags[tag] = exifData[tag];
             }
