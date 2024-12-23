@@ -2,6 +2,7 @@
 # base URL after / is dependent on the repository name
 baseurl: "https://staycool21.github.io/staycool21-photography"
 # baseurl: "" # Comment the above line and uncomment this to test the website locally
+favicon: "/favicon.ico"
 image_fulls_loc: "/images/fulls"
 image_thumbs_loc: "/images/thumbs"
 google_analytics: ""
