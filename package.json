@@ -30,9 +30,16 @@
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-image-resize": "^0.13.1",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-jimp": "^1.2.9",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.0.0",
+    "gulp-sharp-responsive": "^0.4.1",
+    "gulp-size": "^5.0.0",
     "gulp-uglify": "^3.0.0",
     "sass": "^1.25.0"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
   }
 }

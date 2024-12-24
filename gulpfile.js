@@ -1,29 +1,37 @@
 'use strict';
 
 var gulp = require('gulp');
-var imageResize = require('gulp-image-resize');
+// var imageResize = require('gulp-image-resize');
 var sass = require('gulp-sass')(require('sass'));
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var del = require('del');
+var path = require('path');
+var through2 = require('through2');
 
 gulp.task('delete', function () {
     return del(['images/*.*']);
 });
 
-gulp.task('resize-images', function () {
-    return gulp.src('images/*.*')
-        .pipe(imageResize({
-            width: 1024,
-            imageMagick: true
-        }))
-        .pipe(gulp.dest('images/fulls'))
-        .pipe(imageResize({
-            width: 512,
-            imageMagick: true
-        }))
-        .pipe(gulp.dest('images/thumbs'));
-});
+// gulp.task('resize-images', function () {
+//     return gulp.src('images/**/*.*')
+//         .pipe(imageResize({
+//             width: 1024,
+//             imageMagick: true
+//         }))
+//         .pipe(through2.obj(function (file, _, cb) {
+//             var folderName = path.basename(path.dirname(file.path));
+//             file.path = path.join(file.base, 'images/fulls', folderName, path.basename(file.path));
+//             cb(null, file);
+//         }))
+//         .pipe(gulp.dest('.'))
+//         .pipe(through2.obj(function (file, _, cb) {
+//             var folderName = path.basename(path.dirname(file.path));
+//             file.path = path.join(file.base, 'images/thumbs', folderName, path.basename(file.path));
+//             cb(null, file);
+//         }))
+//         .pipe(gulp.dest('.'));
+// });
 
 // compile scss to css
 gulp.task('sass', function () {
@@ -35,7 +43,7 @@ gulp.task('sass', function () {
 
 // watch changes in scss files and run sass task
 gulp.task('sass:watch', function () {
-    gulp.watch('./assets/sass/**/*.scss', ['sass']);
+    gulp.watch('./assets/sass/**/*.scss', gulp.series('sass'));
 });
 
 // minify js
@@ -50,7 +58,7 @@ gulp.task('minify-js', function () {
 gulp.task('build', gulp.series('sass', 'minify-js'));
 
 // resize images
-gulp.task('resize', gulp.series('resize-images', 'delete'));
+// gulp.task('resize', gulp.series('resize-images', 'delete'));
 
 // default task
-gulp.task('default', gulp.series('build', 'resize'));
+gulp.task('default', gulp.series('build'));

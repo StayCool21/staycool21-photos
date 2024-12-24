@@ -17,12 +17,14 @@ layout: default
 
     <!-- Main -->
     <div id="main" data-exif='{{ site.exif }}'>
-        {% for image in site.static_files %}
-        {% if image.path contains 'fulls' %}
-        <article class="thumb">
-            <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
-                <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
-                     data-name="{{ image.name }}"/></a>
+        {% assign events = site.static_files %}
+        {% for image in events %}
+        {% if image.path contains '/fulls/' %}
+        {% assign event_name = image.path | split: '/' | slice: -2, 1 | join: '' %}
+        <article class="thumb" style='background-image: url("{{ site.baseurl }}/images/thumbs/{{ event_name }}/{{ image.name }}"); outline: 0px;'>
+            <a href="{{ site.baseurl }}{{ image.path }}" class="image">
+                <img src="{{ site.baseurl }}/images/thumbs/{{ event_name }}/{{ image.name }}" alt="" data-name="{{ image.name }}"/></a>
+            <h2 class="event-title">{{ event_name }}</h2>
             <!--<h2></h2>
             <p></p>-->
         </article>
