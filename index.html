@@ -23,7 +23,7 @@ layout: default
 
     <!-- Main -->
     <div id="main" data-exif='{{ site.exif }}'>
-        {% assign events = site.static_files %}
+        {% assign events = site.static_files | sort: 'path' | reverse %}
         {% for image in events %}
         {% if image.path contains '/fulls/' %}
         {% assign event_name = image.path | split: '/' | slice: -2, 1 | join: '' %}
