@@ -301,8 +301,17 @@
 
         // Hack: Set margins to 0 when 'xsmall' activates.
         skel
-            .on('-xsmall', function () {
+            .on('-large', function () {
                 $main[0]._poptrox.windowMargin = 50;
+            })
+            .on('+large', function () {
+                $main[0]._poptrox.windowMargin = 0;
+            })
+            .on('+medium', function () {
+                $main[0]._poptrox.windowMargin = 0;
+            })
+            .on('+small', function () {
+                $main[0]._poptrox.windowMargin = 0;
             })
             .on('+xsmall', function () {
                 $main[0]._poptrox.windowMargin = 0;
