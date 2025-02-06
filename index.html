@@ -20,7 +20,7 @@ layout: default
         </nav>
     </header>
     <style>
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .desktop-subtitle {
                 display: none;
             }
@@ -202,6 +202,14 @@ layout: default
                                         console.error('Error:', error);
                                     });
                                 }, 3000);
+                            });
+                        });
+                    </script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            window.isWideScreen = window.innerWidth >= 1024;
+                            window.addEventListener('resize', function() {
+                                window.isWideScreen = window.innerWidth >= 1024;
                             });
                         });
                     </script>
